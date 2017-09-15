@@ -1,0 +1,12 @@
+{
+  "name": "iksm-fetcher",
+  "version": "1.0.0",
+  "main": "main.js",
+  "dependencies": {
+    "auto-bind": "^1.1.0",
+    "moment": "^2.18.1",
+    "mz": "^2.7.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}

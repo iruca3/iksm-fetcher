@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>iksm fetcher</title>
+    <script>
+      const iksm = require('./iksm');
+    </script>
+    <style type="text/css">
+      body {
+        overflow: hidden;
+      }
+      h1 {
+        font-size: 1rem;
+        margin: 0.2rem 0;
+        color: #0a61c1;
+        font-family: sans-serif;
+      }
+      input[name=iksm_session] {
+        width: 200px;
+      }
+      #log {
+        width: 100%;
+        white-space: pre-wrap;
+        font-family: monospace;
+        font-size: 0.8rem;
+        overflow: scroll;
+        padding: 0.1rem;
+        background-color: #e4e4e4;
+        margin-top: 2px;
+        height: 158px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>IksmFetcher</h1>
+    <div>
+      <input type="text" name="iksm_session" placeholder="Input iksm_session here" onChange="iksm.saveIksm(this.value)" />
+      <button onClick="iksm.startFetchingResults(this);">Fetch JSONs</button>
+    </div>
+    <div id="log"></div>
+
+    <script type="text/javascript">
+      document.querySelector('input[name=iksm_session]').value = localStorage.getItem('iksm_session');
+    </script>
+  </body>
+</html>
