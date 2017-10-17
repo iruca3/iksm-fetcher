@@ -1,6 +1,6 @@
 {
   "name": "iksm-fetcher",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "main.js",
   "dependencies": {
     "auto-bind": "^1.1.0",
