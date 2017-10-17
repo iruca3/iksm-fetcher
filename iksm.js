@@ -38,6 +38,8 @@ class Iksm {
       } else {
         this.addLog(e.message);
       }
+      this.fetchButton.innerText = 'Fetch JSONs';
+      this.fetchButton.disabled = '';
     });
   }
 
