@@ -37,10 +37,11 @@ app.on('activate', () => {
 });
 
 exports.getAppPath = function() {
-  const path = app.getPath('exe');
   if (process.platform == 'darwin') {
-    return path + '/../../../..';
+    const path = app.getPath('userData');
+    return path;
   } else {
+    const path = app.getPath('exe');
     return path + '/..';
   }
 };
