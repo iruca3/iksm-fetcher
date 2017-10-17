@@ -30,6 +30,13 @@ class Iksm {
     this.prepareDirectory()
     .then(this.fetch)
     .then(this.gotResultIndex)
+    .catch((e) => {
+      if (e.statusCode == 403) {
+        this.addLog('Authentication failed. Please check your iksm session id is valid.');
+      } else {
+        this.addLog(e.message);
+      }
+    });
   }
 
   saveIksm(iksmSession) {
