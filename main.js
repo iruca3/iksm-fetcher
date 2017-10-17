@@ -38,9 +38,9 @@ app.on('activate', () => {
 
 exports.getAppPath = function() {
   const path = app.getPath('exe');
-  if (process.platform !== 'darwin') {
-    return path;
-  } else {
+  if (process.platform == 'darwin') {
     return path + '/../../../..';
+  } else {
+    return path + '/..';
   }
 };
