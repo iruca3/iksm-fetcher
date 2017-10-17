@@ -3,6 +3,7 @@ const request = require('request-promise');
 const fs = require('mz/fs');
 const path = require('path');
 const moment = require('moment');
+const main = require('electron').remote.require('./main');
 
 class Iksm {
   constructor() {
@@ -17,7 +18,8 @@ class Iksm {
   }
 
   prepareDirectory() {
-    let pathname = path.join(__dirname, '..', '..', '..', '..', 'results');
+    let basePath = main.getAppPath();
+    let pathname = path.join(basePath, 'results');
     return fs.mkdir(pathname)
     .then(() => Promise.resolve())
     .catch((err) => Promise.resolve());
@@ -111,7 +113,8 @@ class Iksm {
   saveDetail(body) {
     return new Promise(function(resolve, reject) {
       let data = JSON.parse(body);
-      let pathname = path.join(__dirname, '..', '..', '..', '..', 'results', `${data.battle_number}.json`);
+      let basePath = main.getAppPath();
+      let pathname = path.join(basePath, 'results', `${data.battle_number}.json`);
       fs.writeFileSync(pathname, body, 'utf-8');
       this.addLog(`Saved to "results/${data.battle_number}.json".`);
       resolve();
